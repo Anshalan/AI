@@ -135,12 +135,28 @@ def zachlanny(root):
         # print(current_node.name)
 
         current_node.path.append(current_node.name)
+
         if len(current_node.path) == len(root.connected_nodes) + 1:
+            current_node.path.append(root.name)
+            current_node.cost += calculate_distance(current_node, root)
+            # nodes_to_visit.append(current_node)
+            # print("almost done")
+        if len(current_node.path) == len(root.connected_nodes) + 2:
+
             # print("path cost " + str(current_node.cost))
             if best_cost < 0 or current_node.cost < best_cost:
                 # if current_node.cost < best_cost:
                 best_cost = current_node.cost
                 best_path = current_node.path
+
+
+
+        # if len(current_node.path) == len(root.connected_nodes) + 1:
+        #     # print("path cost " + str(current_node.cost))
+        #     if best_cost < 0 or current_node.cost < best_cost:
+        #         # if current_node.cost < best_cost:
+        #         best_cost = current_node.cost
+        #         best_path = current_node.path
         else:
             temp_nodes_to_visit = []
             for child in current_node.connected_nodes:
@@ -205,7 +221,7 @@ def a_star(root):
 
 
 
-new_graph = generate_graph(3)
+new_graph = generate_graph(8)
 new_graph2 = new_graph
 g2 = [
     City_node("City_1", 0, 0),
@@ -221,5 +237,5 @@ print_list(new_graph)
 bfs(new_graph[0])
 # print_list(new_graph)
 dfs(new_graph[0])
-# zachlanny(new_graph[0])
+zachlanny(new_graph[0])
 # a_star(new_graph[0])
