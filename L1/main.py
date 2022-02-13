@@ -161,7 +161,7 @@ def a_star(root, graph):
     return [best_path, best_cost]
 
 
-for i in range(5, 12):
+for i in range(1, 11):
     graph = generate_graph(i)
 
     start_time = datetime.datetime.now()
@@ -189,3 +189,5 @@ for i in range(5, 12):
           + "\n\tdfs time:    {0}ms".format(round(dfs_execution_time, 1))+ "\tcost:{0} path: {1}".format(round(dfs_res[1], 3), dfs_res[0])
           + "\n\tgreedy time: {0}ms".format(round(z_execution_time, 1))+ "\tcost:{0} path: {1}".format(round(greedy_res[1], 3), greedy_res[0])
           + "\n\ta* time:     {0}ms".format(round(a_execution_time, 1))+ "\tcost:{0} path: {1}".format(round(a_star_res[1], 3), a_star_res[0]))
+
+
